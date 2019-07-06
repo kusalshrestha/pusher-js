@@ -1712,8 +1712,8 @@ module.exports =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var react_native_1 = __webpack_require__(27);
 	var dispatcher_1 = __webpack_require__(14);
+	var RNNetInfo = require('@react-native-community/netinfo')
 	function hasOnlineConnectionState(connectionState) {
 	    return connectionState.type.toLowerCase() !== "none";
 	}
@@ -1723,10 +1723,10 @@ module.exports =
 	        var _this = this;
 	        _super.call(this);
 	        this.online = true;
-	        react_native_1.NetInfo.getConnectionInfo().then(function (connectionState) {
+	        RNNetInfo.fetch().then(function (connectionState) {
 	            _this.online = hasOnlineConnectionState(connectionState);
 	        });
-	        react_native_1.NetInfo.addEventListener('connectionChange', function (connectionState) {
+	        RNNetInfo.addEventListener(function (connectionState) {
 	            var isNowOnline = hasOnlineConnectionState(connectionState);
 	            if (_this.online === isNowOnline)
 	                return;

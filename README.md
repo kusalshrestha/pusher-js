@@ -1,3 +1,5 @@
+# COMPATIBLE WITH RN >= 0.60
+
 # Pusher Channels Javascript Client
 
 This Pusher Channels client library supports web browsers, web workers, Node.js
